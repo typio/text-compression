@@ -1,1 +1,1 @@
-"# Huffman Compression" 
+# Huffman Compression
