@@ -22,9 +22,9 @@ int main(int argc, char** argv) {
     auto ip = unique(alphabet.begin(), alphabet.end());
     alphabet.resize(distance(alphabet.begin(), ip));
 
-    for (ip = alphabet.begin(); ip != alphabet.end(); ++ip) {
-        //cout << *ip << endl;
-    }
+    sort(alphabet.begin(), alphabet.end());
+
+
 
     // Map of Unique Chars and Their Frequencies
     map<char, unsigned long> counts;
@@ -32,10 +32,15 @@ int main(int argc, char** argv) {
         counts[contents[i]]++;
     }
 
+    // This Prints the Alphabet
     for (size_t i = 0; i < alphabet.length(); i++) {
-        cout << alphabet[i] << ' ' << counts[i] << '\n';
+        cout << alphabet[i] << '\n';
     }
 
+    // This Prints the Frequencies
+    for (ip = alphabet.begin(); ip != alphabet.end(); ++ip) {
+        cout << counts[*ip] << endl;
+    }
 
     return 0;
 }
