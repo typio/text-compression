@@ -28,19 +28,17 @@ int main(int argc, char** argv) {
 
     // Map of Unique Chars and Their Frequencies
     map<char, unsigned long> counts;
-    for (unsigned long i = 0; i < contents.length(); i++) {
+    for (unsigned long i = 0; i < contents.length(); ++i) {
         counts[contents[i]]++;
     }
 
-    // This Prints the Alphabet
-    for (size_t i = 0; i < alphabet.length(); i++) {
-        cout << alphabet[i] << '\n';
+    // This Prints the Alphabet and Frequencies
+    ip = alphabet.begin();
+    for (size_t i = 0; i < alphabet.length(); ++i) {
+        cout << alphabet[i] << ' ' << counts[*ip] << endl;
+        ++ip;
     }
 
-    // This Prints the Frequencies
-    for (ip = alphabet.begin(); ip != alphabet.end(); ++ip) {
-        cout << counts[*ip] << endl;
-    }
 
     return 0;
 }
