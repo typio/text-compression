@@ -1,4 +1,4 @@
-THE ADVENTURES OF SHERLOCK HOLMES
+﻿THE ADVENTURES OF SHERLOCK HOLMES
 
 by
 
@@ -12645,4 +12645,4 @@ the island of Mauritius. As to Miss Violet Hunter, my friend
 Holmes, rather to my disappointment, manifested no further
 interest in her when once she had ceased to be the centre of one
 of his problems, and she is now the head of a private school at
-Walsall, where I believe that she has met with considerable success.
+Walsall, where I believe that she has met with considerable success. 
