@@ -1,77 +1,14 @@
 // Huffman Compression
 // Thomas Odysseus Huber
 
-#include <iostream>
-#include <algorithm>
-#include <fstream>
-#include <string>
-#include <vector>
-#include <map>
-#include <bits/stdc++.h>
-using namespace std;
-
-struct Node {
-    char c;
-    unsigned freq;
-
-    Node *left, *right;
-
-    Node(char c, unsigned freq) {
-        left = right = NULL;
-        this -> c = c;
-        this -> freq = freq;
-    }
-};
-
-struct compare {
-    bool operator()(Node* l, Node* r) {
-        return (l -> freq > r -> freq);
-    }
-};
-
-void printCodes(struct Node* root, string str) {
-    if (!root)
-        return;
-
-    if (root -> c != '$')
-        cout << root -> c << ": " << str << "\n";
-
-    printCodes(root -> left, str + "0");
-    printCodes(root -> right, str + "1");
-}
-
-void HuffmanCodes(char c[], int freq[], int size) {
-    struct Node *left, *right, *top;
-
-    priority_queue<Node*, vector<Node*>, compare> minHeap;
-
-    for (int i = 0; i < size; ++i) {
-        minHeap.push(new Node(c[i], freq[i]));
-    }
-
-    while (minHeap.size() != 1) {
-
-        left = minHeap.top();
-        minHeap.pop();
-
-        right = minHeap.top();
-        minHeap.pop();
-
-        top = new Node('$', left->freq + right->freq);
-
-        top->left = left;
-        top->right = right;
-
-        minHeap.push(top);
-    }
-
-    printCodes(minHeap.top(), "");
-}
+#include "encode.h"
+#include "decode.h"
 
 int main(int argc, char** argv) {
+    remove("freqs.txt");
     // Read Text From Arg as String
-    ifstream in(argv[1]);
-    string contents((istreambuf_iterator<char>(in)),
+    ifstream path(argv[1]);
+    string contents((istreambuf_iterator<char>(path)),
     istreambuf_iterator<char>());
 
     // Sort String of Full Text
@@ -105,6 +42,9 @@ int main(int argc, char** argv) {
     int size = sizeof(alph) / sizeof(alph[0]);
 
     HuffmanCodes(alph, freq, size);
+
+    //writeCompressed(argv[1]);
+    writeDecompressed("compressed.bin", "freqs.txt");
 
     return 0;
 }
