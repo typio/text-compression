@@ -1,3 +1,9 @@
 # Huffman Compression
 
-[This helped a lot](https://www.geeksforgeeks.org/greedy-algorithms-set-3-huffman-coding/ "basically copied it")
+To compress/ decompress, comment/ uncomment last two lines in ```int main``` in main.cc
+
+works almost completely but not for spaces and line breaks
+
+it'll be done tmmrw
+
+also needs control of functions during runtime w/o changing code
