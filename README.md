@@ -1,9 +1,6 @@
 # Huffman Compression
 
-To compress/ decompress, comment/ uncomment last two lines in ```int main``` in main.cc
+This is just a concept so far bc the compressed file isn't
+encoded as binary yet so it doesn't actually compress.
 
-works almost completely but not for spaces and line breaks
-
-it'll be done tmmrw
-
-also needs control of functions during runtime w/o changing code
+Run from command line like ```$ ./huffman C:\text.txt```
