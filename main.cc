@@ -43,8 +43,18 @@ int main(int argc, char** argv) {
 
     HuffmanCodes(alph, freq, size);
 
-    //writeCompressed(argv[1]);
-    writeDecompressed("compressed.bin", "freqs.txt");
+    int choice;
+    cout << "1) compress\n2) decompress\n3) exit" << '\n';
+    while (true) {
+        cin >> choice;
+        if (choice == 1) {
+            writeCompressed(argv[1]);
+        } else if (choice == 2) {
+            writeDecompressed("compressed.bin", "freqs.txt");
+        } else {
+            return 0;
+        }
+    }
 
     return 0;
 }
