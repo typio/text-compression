@@ -34,8 +34,8 @@ void printCodes(struct Node* root, string str) {
         return;
 
     if (root -> c != '$') {
-        o << root -> c << ": " << str << "\n";
-        codes << root -> c << ": " << str << "\n";
+        o << root -> c << ">" << str << "<";
+        codes << root -> c << ">" << str << "<";
     }
     printCodes(root -> left, str + "0");
     printCodes(root -> right, str + "1");
@@ -72,13 +72,13 @@ void HuffmanCodes(char c[], int freq[], int size) {
 string getCode(char c, string codes) {
     for (size_t i = 0; i < codes.length(); i++) {
         // for not break line char
-        if (codes[i] == c && c != '\n') {
-            int startStr = i + 3;
+        if (codes[i] == c) {
+            int startStr = i + 2;
             int endStr = startStr;
             // find end of code
             int j = startStr;
-            while (j < startStr + 15) {
-                if (codes[j] == '\n') {
+            while (j < startStr + 25) {
+                if (codes[j] == '<') {
                     endStr = j;
                     break;
                 } else {
@@ -87,20 +87,6 @@ string getCode(char c, string codes) {
             }
             return codes.substr(startStr, endStr - startStr);
             // for break line char
-        } else if (codes[i] == c && c == '\n') {
-            int startStr = i + 4;
-            int endStr = startStr;
-            // find end of code
-            int j = startStr;
-            while (j < startStr + 15) {
-                if (codes[j] == '\n') {
-                    endStr = j;
-                    break;
-                } else {
-                    j++;
-                }
-            }
-            return codes.substr(startStr, endStr - startStr);
         }
     }
     return NULL;
