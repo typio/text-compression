@@ -1,6 +1,4 @@
 # Huffman Compression
 
-This is just a concept so far bc the compressed file isn't
-encoded as binary yet so it doesn't actually compress.
-
+This is just a working concept, ~~i dont know how~~ i'm not smart enough to encode as binary for working compression.
 Run from command line like ```$ ./huffman C:\text.txt```
