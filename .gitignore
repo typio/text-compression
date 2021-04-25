@@ -2,3 +2,5 @@
 !.gitignore
 res
 *.exe
+*.ilk
+*pdb
